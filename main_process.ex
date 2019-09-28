@@ -1,6 +1,10 @@
 defmodule MainProcess do
+#Can this be made genserver
+	# def msg_received(from) do
+	# 	Call cast method to update state here
+	# end
 
-	def first(nodes,topology) do
+	def start_main_process(nodes,topology) do
 		# a list of the PIDs of the started nodes
 		listOfNodes = Enum.map(1..nodes, fn x-> elem(GenServer.start_link(WorkerNode,:ok),1) end)
 		IO.inspect(listOfNodes)
